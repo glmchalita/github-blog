@@ -1,4 +1,6 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
+
+import { usePosts } from '../../hooks/usePosts'
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
@@ -9,9 +11,17 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { MarkdownRenderer } from '../../lib/markdown/MarkdownRenderer'
+import { formatDate } from '../../utils/formatter'
+
 import { PostContainer, PostContent, PostTitleCard } from './styles'
 
 export function Post() {
+  const { postId } = useParams()
+  const { posts } = usePosts()
+
+  const post = posts.filter((item) => item.id === Number(postId))[0]
+
   return (
     <PostContainer>
       <PostTitleCard>
@@ -19,43 +29,33 @@ export function Post() {
           <NavLink to="/">
             <FontAwesomeIcon icon={faChevronLeft} /> Voltar
           </NavLink>
-          <a href="#">
+          <a href={post.html_url}>
             Ver no Github <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
           </a>
         </div>
 
-        <h2>JavaScript data types and data structures</h2>
+        <h2>{post.title}</h2>
 
         <div>
           <div>
             <FontAwesomeIcon icon={faGithub} />
-            <span>glmchalita</span>
+            <span>{post.user.login}</span>
           </div>
 
           <div>
             <FontAwesomeIcon icon={faCalendarDay} />
-            <span>Há 1 dia</span>
+            <span>{formatDate(post.created_at)}</span>
           </div>
 
           <div>
             <FontAwesomeIcon icon={faComment} />
-            <span>32 comentarios</span>
+            <span>{post.comments} comentarios</span>
           </div>
         </div>
       </PostTitleCard>
 
       <PostContent>
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in JavaScript and what
-          properties they have. These can be used to build other data
-          structures. Wherever possible, comparisons with other languages are
-          drawn. Dynamic typing JavaScript is a loosely typed and dynamic
-          language. Variables in JavaScript are not directly associated with any
-          particular value type, and any variable can be assigned (and
-          re-assigned) values of all types:
-        </p>
+        <MarkdownRenderer>{post.body}</MarkdownRenderer>
       </PostContent>
     </PostContainer>
   )

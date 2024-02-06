@@ -24,6 +24,8 @@ export const ProfileCard = styled.div`
 `
 
 export const ProfileContent = styled.div`
+  width: 100%;
+
   > div:first-child {
     display: flex;
     align-items: center;
@@ -43,6 +45,12 @@ export const ProfileContent = styled.div`
       color: ${({ theme }) => theme.color.blue};
       font: ${({ theme }) => theme.font.link};
       text-transform: uppercase;
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        border-bottom-color: ${({ theme }) => theme.color.blue};
+      }
     }
   }
 
@@ -104,10 +112,14 @@ export const SearchContainer = styled.div`
       border: 1px solid ${({ theme }) => theme.color['base-border']};
 
       background-color: ${({ theme }) => theme.color['base-input']};
+      color: ${({ theme }) => theme.color['base-text']};
 
       &::placeholder {
         color: ${({ theme }) => theme.color['base-label']};
       }
+    }
+
+    input:active {
     }
   }
 `
@@ -116,4 +128,6 @@ export const PostsListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 416px);
   gap: 2rem;
+
+  margin-bottom: 14.625rem;
 `

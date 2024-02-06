@@ -9,6 +9,7 @@ export const PostContainer = styled.div`
 export const PostTitleCard = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   padding: 2rem;
   margin-top: -5.5rem;
@@ -30,6 +31,13 @@ export const PostTitleCard = styled.div`
       display: flex;
       align-items: center;
       gap: 0.5rem;
+
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        border-bottom-color: ${({ theme }) => theme.color.blue};
+      }
     }
   }
 
@@ -57,6 +65,10 @@ export const PostTitleCard = styled.div`
 
       span {
         color: ${({ theme }) => theme.color['base-span']};
+      }
+
+      span:nth-child(2):first-letter {
+        text-transform: uppercase;
       }
     }
   }
