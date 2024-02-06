@@ -6,7 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { PostCard } from '../../components/PostCard'
+import { Card } from '../../components/Card'
 
 import {
   HomeContainer,
@@ -69,12 +69,12 @@ export function Home() {
       </SearchContainer>
 
       <PostsListContainer>
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
       </PostsListContainer>
     </HomeContainer>
   )

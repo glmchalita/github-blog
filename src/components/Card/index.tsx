@@ -1,8 +1,8 @@
-import { PostCardContainer } from './styles'
+import { CardContainer } from './styles'
 
-export function PostCard() {
+export function Card() {
   return (
-    <PostCardContainer>
+    <CardContainer to="/post">
       <h2>
         JavaScript data types and data structures
         <span>Há 1 dia</span>
@@ -20,6 +20,6 @@ export function PostCard() {
         let foo = 42; // foo is now a number foo = bar; // foo is now a string
         foo = true; // foo is now a boolean
       </p>
-    </PostCardContainer>
+    </CardContainer>
   )
 }
