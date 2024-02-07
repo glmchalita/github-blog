@@ -1,12 +1,11 @@
 import { BrowserRouter } from 'react-router-dom'
 
-import { ThemeProvider } from 'styled-components'
+import { GlobalStyle } from './styles/global'
+import { defaultTheme } from './styles/themes/default'
 
 import { PostProvider } from './contexts/postContext'
 import Router from './Router'
-
-import { GlobalStyle } from './styles/global'
-import { defaultTheme } from './styles/themes/default'
+import { ThemeProvider } from 'styled-components'
 
 export default function App() {
   return (

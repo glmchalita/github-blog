@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-
 import headerBg from '../../assets/header-bg.png'
+
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
   background-image: url(${headerBg});

@@ -1,18 +1,9 @@
 import { useEffect, useState } from 'react'
-
 import { usePosts } from '../../hooks/usePosts'
 
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import {
-  faArrowUpRightFromSquare,
-  faBuilding,
-  faUserGroup,
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import { Card } from '../../components/Card'
+
 import { api } from '../../lib/axios'
-import { SearchForm } from './SearchForm'
 
 import {
   HomeContainer,
@@ -21,6 +12,15 @@ import {
   ProfileContent,
   SearchContainer,
 } from './styles'
+
+import { SearchForm } from './SearchForm'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import {
+  faArrowUpRightFromSquare,
+  faBuilding,
+  faUserGroup,
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface ProfileInputs {
   avatar_url: string

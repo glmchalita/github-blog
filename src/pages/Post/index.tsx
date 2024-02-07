@@ -1,6 +1,10 @@
 import { NavLink, useParams } from 'react-router-dom'
-
 import { usePosts } from '../../hooks/usePosts'
+
+import { MarkdownRenderer } from '../../lib/markdown/MarkdownRenderer'
+import { formatDate } from '../../utils/formatter'
+
+import { PostContainer, PostContent, PostTitleCard } from './styles'
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import {
@@ -10,11 +14,6 @@ import {
   faComment,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import { MarkdownRenderer } from '../../lib/markdown/MarkdownRenderer'
-import { formatDate } from '../../utils/formatter'
-
-import { PostContainer, PostContent, PostTitleCard } from './styles'
 
 export function Post() {
   const { postId } = useParams()
